@@ -42,8 +42,8 @@ app.use(function(req, res, next){
 
 // topics will start with first arg
 app.use("/", indexRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds", campgroundRoutes);
+app.use("/campgrounds/:id/comments", commentRoutes);
 
 // START EXPRESS SERVER
 app.listen(5500, 'localhost', function() {
