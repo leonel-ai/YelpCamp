@@ -2,6 +2,7 @@ var express       = require("express"),
     app           = express(),
     bodyParser    = require("body-parser"),
     mongoose      = require("mongoose"),
+    flash         = require("connect-flash"),
     passport      = require("passport"),
     LocalStrategy = require("passport-local"),
     methodOver    = require("method-override"),
@@ -20,6 +21,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public")); // conventional
 app.use(methodOver("_method"));
+app.use(flash());
 // seedDB(); // seed the database
 
 // PASSPORT CONFIG
@@ -37,6 +39,8 @@ passport.deserializeUser(User.deserializeUser());
 // own middleware
 app.use(function(req, res, next){
   res.locals.currentUser = req.user;
+  res.locals.error = req.flash("error");
+  res.locals.success = req.flash("success");
   next();
 });
 
