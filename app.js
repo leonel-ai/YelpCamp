@@ -16,8 +16,8 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes       = require("./routes/index");
 
-// local dev use - mongoose.connect("mongodb://localhost/yelpcamp", {useNewUrlParser: true})
-mongoose.connect("mongodb://leonela:Testcase1@ds151994.mlab.com:51994/yelpcamp-lg", {useNewUrlParser: true})
+mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true})
+// mongoose.connect("mongodb://leonela:Testcase1@ds151994.mlab.com:51994/yelpcamp-lg", {useNewUrlParser: true})
   .then(() => {
     console.log("Connected to Database");
   }).catch((err) => {
@@ -59,3 +59,4 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.listen(process.env.PORT, process.env.IP, function() {
   console.log("YelpCamp server has started!");
 });
+
