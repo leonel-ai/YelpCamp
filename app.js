@@ -17,7 +17,7 @@ var commentRoutes    = require("./routes/comments"),
     indexRoutes       = require("./routes/index");
 
 // local dev use - mongoose.connect("mongodb://localhost/yelpcamp", {useNewUrlParser: true})
-mongoose.connect("mongodb://leonela:Shrimptaco2019@ds151994.mlab.com:51994/yelpcamp-lg", {useNewUrlParser: true})
+mongoose.connect("mongodb://leonela:Testcase1@ds151994.mlab.com:51994/yelpcamp-lg", {useNewUrlParser: true})
   .then(() => {
     console.log("Connected to Database");
   }).catch((err) => {
