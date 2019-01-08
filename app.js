@@ -55,6 +55,6 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 // START EXPRESS SERVER
-app.listen(5500, 'localhost', function() {
+app.listen(process.env.PORT, process.env.IP, function() {
   console.log("YelpCamp server has started!");
 });
