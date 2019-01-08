@@ -16,7 +16,8 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes       = require("./routes/index");
 
-mongoose.connect("mongodb://localhost/yelpcamp", {useNewUrlParser: true})
+// local dev use - mongoose.connect("mongodb://localhost/yelpcamp", {useNewUrlParser: true})
+mongoose.connect("mongodb://leonela:Shrimptaco2019@ds151994.mlab.com:51994/yelpcamp-lg", {useNewUrlParser: true})
   .then(() => {
     console.log("Connected to Database");
   }).catch((err) => {
