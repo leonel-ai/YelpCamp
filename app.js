@@ -16,7 +16,9 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes       = require("./routes/index");
 
-mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true})
+// backup db if cannot connect
+var url = process.env.DATABASEURL || "mongodb://localhost/yelpcamp";
+mongoose.connect(url, {useNewUrlParser: true})
   .then(() => {
     console.log("Connected to Database");
   }).catch((err) => {
